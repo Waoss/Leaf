@@ -10,12 +10,9 @@
 
 package com.waoss.leaf.syntax;
 
-import com.google.gson.Gson;
-
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyEvent;
-
 import org.fxmisc.richtext.CodeArea;
 import org.fxmisc.richtext.LineNumberFactory;
 import org.fxmisc.richtext.model.StyleSpans;
@@ -29,11 +26,6 @@ import java.util.List;
  * @author Rahul Chhabra
  */
 public abstract class SyntaxArea extends CodeArea implements Serializable {
-
-    @Override
-    public String toString() {
-        return new Gson().toJson(this);
-    }
 
     protected KeyCodeCombination shiftTab = new KeyCodeCombination(KeyCode.TAB, KeyCodeCombination.SHIFT_DOWN);
     protected List<Long> list = new LinkedList<>();

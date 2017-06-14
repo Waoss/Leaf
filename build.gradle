@@ -35,7 +35,6 @@ jar {
 }
 dependencies {
     extraLibs group: 'org.fxmisc.richtext', name: 'richtextfx', version: '0.7-M5'
-    extraLibs 'com.google.code.gson:gson:2.2.4'
     testCompile 'junit:junit:4.12'
     configurations.compile.extendsFrom(configurations.extraLibs)
 }
