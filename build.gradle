@@ -1,0 +1,30 @@
+apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'maven'
+repositories {
+    mavenCentral()
+    jcenter()
+}
+mainClassName = 'com.waoss.leaf.Leaf'
+configurations {
+    extraLibs
+}
+jar {
+    manifest {
+        attributes(
+                "Implementation-Title": "Gradle",
+                "Implementation-Version": "1.0",
+                "Main-Class": "com.waoss.leaf.Leaf")
+    }
+    from {
+        configurations.extraLibs.collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    }
+}
+dependencies {
+    extraLibs group: 'org.fxmisc.richtext', name: 'richtextfx', version: '0.7-M5'
+    extraLibs 'com.google.code.gson:gson:2.2.4'
+    testCompile 'junit:junit:4.12'
+    configurations.compile.extendsFrom(configurations.extraLibs)
+}

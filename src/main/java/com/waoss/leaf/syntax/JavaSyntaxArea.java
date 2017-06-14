@@ -78,6 +78,6 @@ public class JavaSyntaxArea extends SyntaxArea {
 
     @Override
     public String getStylesheet() {
-        return "java.css";
+        return "/com/waoss/leaf/syntax/java.css";
     }
 }
