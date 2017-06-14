@@ -1,4 +1,3 @@
-
 /*
  *  Copyright (c) Waoss
  *
@@ -9,27 +8,25 @@
  *  You receive a copy of the GNU General Public License version 3.0 when you download this software.See LICENSE.MD for more details.
  */
 
-package com.waoss.leaf;
+package com.waoss.leaf.syntax;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-
-public class Leaf extends Application {
-
-    public static void main(String[] args) {
-        launch(args);
-    }
-
+public class CppSyntaxAreaTest extends Application {
     @Override
-    public void start(Stage primaryStage) throws IOException {
-        primaryStage.setTitle("Leaf");
-        primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/com/waoss/leaf/Leaf.fxml"))));
-        primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/com/waoss/leaf/Leaf.jpg")));
+    public void start(Stage primaryStage) throws Exception {
+        CppSyntaxArea cppSyntaxArea = new CppSyntaxArea();
+        cppSyntaxArea.setPrefSize(Screen.getPrimary().getBounds().getWidth(), Screen.getPrimary().getBounds().getHeight());
+        Scene scene = new Scene(new AnchorPane(cppSyntaxArea));
+        scene.getStylesheets().add(cppSyntaxArea.getStylesheet());
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("C++SyntaxAreaTest");
+        primaryStage.setMaximized(true);
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 }
