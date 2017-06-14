@@ -17,16 +17,17 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 import org.junit.Test;
 
-public class JavaSyntaxAreaTest extends Application {
+
+public class PythonSyntaxAreaTest extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        JavaSyntaxArea javaSyntaxArea = new JavaSyntaxArea();
-        javaSyntaxArea.setPrefSize(Screen.getPrimary().getBounds().getWidth(), Screen.getPrimary().getBounds().getHeight());
-        Scene scene = new Scene(new AnchorPane(javaSyntaxArea));
-        scene.getStylesheets().add(javaSyntaxArea.getStylesheet());
+        PythonSyntaxArea pythonSyntaxArea = new PythonSyntaxArea();
+        pythonSyntaxArea.setPrefSize(Screen.getPrimary().getBounds().getWidth(), Screen.getPrimary().getBounds().getHeight());
+        Scene scene = new Scene(new AnchorPane(pythonSyntaxArea));
+        scene.getStylesheets().add(pythonSyntaxArea.getStylesheet());
         primaryStage.setScene(scene);
-        primaryStage.setTitle("JavaSyntaxAreaTest");
+        primaryStage.setTitle("PythonSyntaxAreaTest");
         primaryStage.setMaximized(true);
         primaryStage.setResizable(false);
         primaryStage.show();
