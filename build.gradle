@@ -15,6 +15,7 @@ repositories {
     mavenCentral()
     jcenter()
 }
+group = 'com.waoss'
 version = '1.0'
 mainClassName = 'com.waoss.leaf.Leaf'
 configurations {
