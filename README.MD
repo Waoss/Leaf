@@ -5,4 +5,4 @@ plain Java.The library used for richtexting of text is RichTextFX.
 The current version is more of a beta, I'm only testing stuff like working of Syntax-highlighting, correct Tabbing etc.
 So, in a way,nothing specific, you can download and run the tests to see them working
 ## Languages
-I've made two Syntax areas : C, and Java
+Supports syntax highlighting for C, Java and Python

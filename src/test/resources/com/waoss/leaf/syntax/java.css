@@ -1,0 +1,30 @@
+.keyword {
+    -fx-fill: blue;
+    -fx-font-weight : bold;
+}
+.operator {
+    -fx-fill : blue;
+}
+.semicolon {
+    -fx-fill : blue;
+}
+.string {
+    -fx-fill: green;
+}
+.comment {
+	-fx-fill: cadetblue;
+}
+.paren {
+    -fx-fill: blue;
+}
+.bracket {
+    -fx-fill: blue;
+}
+.brace {
+    -fx-fill: blue;
+}
+.null {
+}
+.paragraph-box:has-caret {
+    -fx-background-color: #f2f9fc;
+}

@@ -14,6 +14,7 @@ package com.waoss.leaf;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -27,6 +28,8 @@ public class Leaf extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         primaryStage.setTitle("Leaf");
-        primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("Leaf.fxml"))));
+        primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/com/waoss/leaf/Leaf.fxml"))));
+        primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/com/waoss/leaf/Leaf.png")));
+        primaryStage.show();
     }
 }

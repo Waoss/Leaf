@@ -15,7 +15,6 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
-import org.junit.Test;
 
 public class JavaSyntaxAreaTest extends Application {
 
@@ -30,10 +29,5 @@ public class JavaSyntaxAreaTest extends Application {
         primaryStage.setMaximized(true);
         primaryStage.setResizable(false);
         primaryStage.show();
-    }
-
-    @Test
-    public void test() {
-        launch(null);
     }
 }

@@ -12,28 +12,24 @@ package com.waoss.leaf.syntax;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
-import org.junit.Test;
 
 public class CSyntaxAreaTest extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
         CSyntaxArea cSyntaxArea = new CSyntaxArea();
-        cSyntaxArea.setPrefSize(Screen.getPrimary().getBounds().getWidth(), Screen.getPrimary().getBounds().getHeight());
+        cSyntaxArea.setPrefSize(Screen.getPrimary().getBounds().getWidth(), Screen.getPrimary().getBounds().getHeight() - 10);
         Scene scene = new Scene(new AnchorPane(cSyntaxArea));
         scene.getStylesheets().add(cSyntaxArea.getStylesheet());
         primaryStage.setScene(scene);
         primaryStage.setTitle("CSyntaxAreaTest");
         primaryStage.setMaximized(true);
         primaryStage.setResizable(false);
+        primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/com/waoss/leaf/Leaf.png")));
         primaryStage.show();
-    }
-
-    @Test
-    public void test() {
-        launch(null);
     }
 }
