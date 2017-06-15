@@ -12,6 +12,7 @@ package com.waoss.leaf.syntax;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
@@ -22,9 +23,10 @@ public class CppSyntaxAreaTest extends Application {
         CppSyntaxArea cppSyntaxArea = new CppSyntaxArea();
         cppSyntaxArea.setPrefSize(Screen.getPrimary().getBounds().getWidth(), Screen.getPrimary().getBounds().getHeight());
         Scene scene = new Scene(new AnchorPane(cppSyntaxArea));
-        scene.getStylesheets().add(cppSyntaxArea.getStylesheet());
+        scene.getStylesheets().add(getClass().getResource("/com/waoss/leaf/syntax/monokai.css").toExternalForm());
         primaryStage.setScene(scene);
         primaryStage.setTitle("C++SyntaxAreaTest");
+        primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/com/waoss/leaf/Leaf.jpg")));
         primaryStage.setMaximized(true);
         primaryStage.setResizable(false);
         primaryStage.show();

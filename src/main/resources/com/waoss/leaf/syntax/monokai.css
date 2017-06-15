@@ -1,0 +1,36 @@
+.code-area {
+    -fx-font-family : "Consolas";
+    -fx-highlight-fill:"#D0D0D0";
+    -fx-background-color:"#272822";
+}
+.keyword {
+   -fx-fill:orange;
+   -fx-font-weight:bold;
+}
+.code-area .text {
+    -fx-fill:"#FFFFFF";
+}
+.operator {
+    -fx-fill : "#1E90FF";
+}
+.semicolon {
+    -fx-fill :"#1E90FF";
+}
+.string {
+    -fx-fill: purple;
+}
+.comment {
+	-fx-fill: "#D9E577";
+}
+.paren {
+    -fx-fill: "#1E90FF";
+}
+.bracket {
+    -fx-fill: "#1E90FF";
+}
+.brace {
+    -fx-fill: "#1E90FF";
+}
+.caret {
+    -fx-fill: "#FFFFFF";
+}

@@ -83,6 +83,6 @@ public class PythonSyntaxArea extends SyntaxArea {
 
     @Override
     public String getStylesheet() {
-        return "/com/waoss/leaf/syntax/java.css";
+        return "/com/waoss/leaf/syntax/default.css";
     }
 }
