@@ -12,6 +12,7 @@
 package com.waoss.leaf;
 
 import javafx.application.Application;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -21,15 +22,37 @@ import java.io.IOException;
 
 public class Leaf extends Application {
 
+    protected static Leaf instance;
+    protected SimpleObjectProperty<Stage> stage = new SimpleObjectProperty<>(this, "stage");
+
+    public static Leaf getInstance() {
+        return instance;
+    }
+
     public static void main(String[] args) {
         launch(args);
     }
 
+    public Stage getStage() {
+        return stage.get();
+    }
+
+    public void setStage(Stage stage) {
+        this.stage.set(stage);
+    }
+
+    public SimpleObjectProperty<Stage> stageProperty() {
+        return stage;
+    }
+
     @Override
     public void start(Stage primaryStage) throws IOException {
-        primaryStage.setTitle("Leaf");
-        primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/com/waoss/leaf/Leaf.fxml"))));
-        primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/com/waoss/leaf/Leaf.jpg")));
-        primaryStage.show();
+        instance = this;
+        stage.set(primaryStage);
+        stage.get().setTitle("Leaf");
+        stage.get().setScene(new Scene(FXMLLoader.load(getClass().getResource("/com/waoss/leaf/Leaf.fxml"))));
+        stage.get().getScene().getStylesheets().add(getClass().getResource("/com/waoss/leaf/syntax/default.css").toExternalForm());
+        stage.get().getIcons().add(new Image(getClass().getResourceAsStream("/com/waoss/leaf/Leaf.jpg")));
+        stage.get().show();
     }
 }

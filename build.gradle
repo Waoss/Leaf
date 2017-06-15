@@ -38,6 +38,7 @@ jar {
 dependencies {
     extraLibs group: 'org.fxmisc.richtext', name: 'richtextfx', version: '0.7-M5'
     extraLibs group: 'com.google.guava', name: 'guava', version: '22.0'
+    extraLibs group: 'commons-io', name: 'commons-io', version: '2.5'
     testCompile 'junit:junit:4.12'
     configurations.compile.extendsFrom(configurations.extraLibs)
 }

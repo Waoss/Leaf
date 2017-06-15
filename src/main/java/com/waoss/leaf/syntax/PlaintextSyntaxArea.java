@@ -10,31 +10,15 @@
 
 package com.waoss.leaf.syntax;
 
-import org.fxmisc.richtext.LineNumberFactory;
 import org.fxmisc.richtext.model.StyleSpans;
-import org.fxmisc.richtext.model.StyleSpansBuilder;
 
-import java.util.Arrays;
 import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
 
-public class SyntaxArea extends AbstractSyntaxArea {
-
-    public SyntaxArea() {
-        this.setParagraphGraphicFactory(LineNumberFactory.get(this));
-        this.richChanges().filter(change -> !change.getInserted().equals(change.getRemoved()))
-                .subscribe(change -> {
-                    this.setStyleSpans(0, computeHighlighting(this.getText()));
-                });
-    }
+public class PlaintextSyntaxArea extends SyntaxArea {
 
     @Override
     public StyleSpans<Collection<String>> computeHighlighting(String text) {
-        StyleSpansBuilder<Collection<String>> styleSpansBuilder = new StyleSpansBuilder<>();
-        List<String> list = Arrays.asList("");
-        styleSpansBuilder.add(Collections.emptyList(), 0);
-        return styleSpansBuilder.create();
+        return null;
     }
 
     @Override

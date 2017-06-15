@@ -20,7 +20,8 @@ import java.util.regex.Pattern;
 
 public class CSyntaxArea extends SyntaxArea {
 
-    private static final String[] KEYWORDS = new String[] {
+
+    private static final String[] KEYWORDS = new String[]{
             "assert", "bool", "break", "byte",
             "case", "char", "const", "continue", "default", "do",
             "double", "else", "enum", "extern", "float",
@@ -30,7 +31,7 @@ public class CSyntaxArea extends SyntaxArea {
             "#ifndef", "#undef", "#error"
     };
 
-    private static final String[] OPERATORS = new String[] {
+    private static final String[] OPERATORS = new String[]{
             "\\+", "-", "\\*", "/", "=", "%", "&", "\\+=", "-=", "\\*=", "/=", "==", "%=", "&=", "\\|=", "^=",
             "\\+ ", "- ", "\\* ", "/ ", "= ", "% ", "& ", "\\+= ", "-= ", "\\*= ", "/= ", "== ", "%= ", "&= ", "\\|= ", "^= ",
             " \\+", " -", " \\*", " /", " =", " %", " &", " \\+=", " -=", " \\*=", " /=", " ==", " %=", " &=", " \\|=", " ^=",
