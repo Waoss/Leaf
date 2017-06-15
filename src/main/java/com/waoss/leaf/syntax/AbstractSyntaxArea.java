@@ -28,7 +28,7 @@ import java.util.TreeMap;
  */
 public abstract class AbstractSyntaxArea extends CodeArea implements Serializable {
 
-    protected static TreeMap<Language, Class<? extends AbstractSyntaxArea>> map;
+    protected static TreeMap<Language, Class<? extends SyntaxArea>> map;
     protected KeyCodeCombination shiftTab = new KeyCodeCombination(KeyCode.TAB, KeyCodeCombination.SHIFT_DOWN);
     protected List<Long> list = new LinkedList<>();
 
@@ -40,11 +40,11 @@ public abstract class AbstractSyntaxArea extends CodeArea implements Serializabl
         map.put(Language.PYTHON, PythonSyntaxArea.class);
     }
 
-    public static AbstractSyntaxArea getSyntaxAreaByLanguage(Language language) throws IllegalAccessException, InstantiationException {
+    public static SyntaxArea getSyntaxAreaByLanguage(Language language) throws IllegalAccessException, InstantiationException {
         return map.get(language).newInstance();
     }
 
-    public static void setSyntaxAreaForLanguage(Language language, Class<? extends AbstractSyntaxArea> syntaxAreaClass) {
+    public static void setSyntaxAreaForLanguage(Language language, Class<? extends SyntaxArea> syntaxAreaClass) {
         map.put(language, syntaxAreaClass);
     }
 

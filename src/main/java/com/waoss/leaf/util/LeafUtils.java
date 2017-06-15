@@ -10,20 +10,32 @@
 
 package com.waoss.leaf.util;
 
-import com.waoss.leaf.syntax.AbstractSyntaxArea;
-import com.waoss.leaf.syntax.PlaintextSyntaxArea;
-
-import java.io.File;
+import com.waoss.leaf.syntax.*;
 
 public class LeafUtils {
-    public static AbstractSyntaxArea getSyntaxArea(File file) {
-        String string = file.toString();
-        AbstractSyntaxArea abstractSyntaxArea;
-        try {
-            abstractSyntaxArea = AbstractSyntaxArea.getSyntaxAreaByLanguage(Language.valueOf(string.substring(string.lastIndexOf("."), string.length() - 1)));
-        } catch (InstantiationException | IllegalAccessException | IllegalArgumentException e) {
-            return new PlaintextSyntaxArea();
+
+    public static SyntaxArea getSyntaxArea(String string) {
+        SyntaxArea syntaxArea;
+        String toBeChecked = string.substring(string.lastIndexOf(".") + 1, string.length()).toLowerCase();
+        switch (toBeChecked) {
+            case "java":
+                syntaxArea = new JavaSyntaxArea();
+                break;
+            case "c":
+                syntaxArea = new CSyntaxArea();
+                break;
+            case "cpp":
+                syntaxArea = new CppSyntaxArea();
+                break;
+            case "py":
+                syntaxArea = new PythonSyntaxArea();
+                break;
+            default:
+                syntaxArea = new SyntaxArea();
+                break;
         }
-        return abstractSyntaxArea;
+        return syntaxArea;
     }
+
+
 }

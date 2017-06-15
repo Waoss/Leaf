@@ -10,14 +10,15 @@
   ~  You receive a copy of the GNU General Public License version 3.0 when you download this software.See LICENSE.MD for more details.
   -->
 
-<?import com.waoss.leaf.syntax.SyntaxArea?>
+<?import com.waoss.leaf.syntax.CSyntaxArea?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:id="anchorPane" maxHeight="Infinity" maxWidth="Infinity"
-            prefHeight="598.0" prefWidth="1001.0" xmlns="http://javafx.com/javafx/8.0.112"
-            fx:controller="com.waoss.leaf.LeafController">
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            xmlns="http://javafx.com/javafx"
+            fx:controller="com.waoss.leaf.LeafController"
+            prefHeight="400.0" prefWidth="600.0">
     <children>
-        <MenuBar maxHeight="Infinity" maxWidth="Infinity" prefHeight="29.0" prefWidth="1001.0" fx:id="menuBar">
+        <MenuBar prefHeight="29.0" prefWidth="1001.0">
             <menus>
                 <Menu mnemonicParsing="false" text="File">
                     <items>
@@ -38,19 +39,6 @@
                 </Menu>
             </menus>
         </MenuBar>
-        <TabPane fx:id="tabPane" layoutY="29.0">
-            <tabs>
-                <Tab text="untitled">
-                    <content>
-                        <ScrollPane>
-                            <content>
-                                <SyntaxArea fx:id="syntaxArea" maxHeight="Infinity" maxWidth="Infinity"
-                                            prefHeight="569.0" prefWidth="1001.0"/>
-                            </content>
-                        </ScrollPane>
-                    </content>
-                </Tab>
-            </tabs>
-        </TabPane>
+        <CSyntaxArea fx:id="syntaxArea" layoutY="29.0" prefHeight="569.0" prefWidth="1001.0"/>
     </children>
 </AnchorPane>

@@ -10,14 +10,20 @@
 
 package com.waoss.leaf;
 
+import com.waoss.leaf.syntax.SyntaxArea;
+import com.waoss.leaf.syntax.SyntaxRegion;
+import com.waoss.leaf.util.LeafUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
+import javafx.stage.Screen;
 import org.apache.commons.io.IOUtils;
-import org.fxmisc.richtext.CodeArea;
 
 import java.io.File;
 import java.io.FileReader;
@@ -27,7 +33,11 @@ import java.util.ResourceBundle;
 public class LeafController implements Initializable {
 
     @FXML
-    CodeArea codeArea;
+    MenuBar menuBar;
+    @FXML
+    TabPane tabPane;
+    @FXML
+    SyntaxArea syntaxArea;
     @FXML
     AnchorPane anchorPane;
     @FXML
@@ -36,12 +46,17 @@ public class LeafController implements Initializable {
     MenuItem fileNew;
     @FXML
     MenuItem fileClose;
-
+    double width = Screen.getPrimary().getBounds().getWidth();
+    double height = Screen.getPrimary().getBounds().getHeight();
     FileChooser fileChooser;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         fileChooser = new FileChooser();
+        fileChooser.setInitialDirectory(new File(System.getProperty("user.dir")));
+        menuBar.setPrefSize(width, height);
+        tabPane.setPrefSize(width, height);
+        syntaxArea.setPrefSize(width, height);
     }
 
     @FXML
@@ -57,6 +72,13 @@ public class LeafController implements Initializable {
     @FXML
     public void fileOpenOnAction(ActionEvent actionEvent) throws Exception {
         File file = fileChooser.showOpenDialog(Leaf.getInstance().getStage());
-        codeArea.replaceText(0, 0, IOUtils.toString(new FileReader(file)));
+        final SyntaxRegion syntaxRegion = new SyntaxRegion(LeafUtils.getSyntaxArea(file.getName()));
+        syntaxRegion.setFile(file);
+        final Tab tab = new Tab(file.getName(), syntaxRegion);
+        tabPane.getTabs().add(tab);
+        syntaxRegion.getSyntaxArea().clear();
+        syntaxRegion.getSyntaxArea().setPrefSize(width, height);
+        syntaxRegion.getSyntaxArea().replaceText(0, 0, IOUtils.toString(new FileReader(file)));
+        tabPane.getSelectionModel().select(tab);
     }
 }

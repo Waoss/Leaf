@@ -53,6 +53,7 @@ public class Leaf extends Application {
         stage.get().setScene(new Scene(FXMLLoader.load(getClass().getResource("/com/waoss/leaf/Leaf.fxml"))));
         stage.get().getScene().getStylesheets().add(getClass().getResource("/com/waoss/leaf/syntax/default.css").toExternalForm());
         stage.get().getIcons().add(new Image(getClass().getResourceAsStream("/com/waoss/leaf/Leaf.jpg")));
+        stage.get().setMaximized(true);
         stage.get().show();
     }
 }
