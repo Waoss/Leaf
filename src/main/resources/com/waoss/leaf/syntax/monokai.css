@@ -1,7 +1,8 @@
-.code-area {
+.paragraph-box {
     -fx-font-family : "Consolas";
     -fx-highlight-fill:"#D0D0D0";
     -fx-background-color:"#272822";
+    -fx-font-size: 21px;
 }
 .keyword {
    -fx-fill:orange;
